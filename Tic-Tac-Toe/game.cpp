@@ -28,7 +28,7 @@ void tic_tac_toe();
 
 
 
-// Array storing the '0' or 'X' on positions entered by players
+// Tablica trzymająca '0' lub 'X' na pozycjach podanych przez graczy
 //
 char a[9] = {'T','T','T','T','T','T','T','T','T'};			
 
@@ -37,14 +37,14 @@ char a[9] = {'T','T','T','T','T','T','T','T','T'};
 
 int main()
 {
-	// calling the main block for Tic-Tac-Toe game 
+	// zawołanie głównego bloku dla gry Tic-Tac-Toe
 	tic_tac_toe();		
 }
 
 
 
-// main block for Tic-Tac-Toe game
-// Game starts from here, turn-wise game
+// główny blok dla gry Tic-Tac-Toe
+// Gra zaczyna się tutaj
 void tic_tac_toe()
 {
 	int flag = 0, turn_counter = 1;
@@ -56,21 +56,20 @@ void tic_tac_toe()
 
 
 		
-		// Taking user-inputs until one of the 2 users win
+		// Pobranie wejścia od użytkowników dopóki jeden z dwóch nie wygra
 		while(1)
 		{
-
-			// Checking if player2 has not triggered continue, 
-			// if not, player1 has its turn
+			// Sprawdzanie czy gracz2 nie nacisnął kontynuacji,
+			// jeśli nie, gracz1 ma swoją ture
 			//
 			if ( continue_p2 != 1 )
 			{
-				cout<<"Player1 -> ";
-				// User inputs the position which furthur is used to store '0' on that position in array
+				cout<<"Gracz1 -> ";
+				// Użytkownik wprowadza pozycję która później jest używana do przechowywania '0' na tej pozycji w tablicy
 				cin>>zero;				
 
 
-					// Checking if the index entered by user is a valid one or not
+					// Sprawdzanie czy liczba wprowadzona przez użytkownika jest poprawną lub nie
 					if (( authenticated_index(zero-1)) )
 					{	
 						++turn_counter;				
@@ -79,8 +78,8 @@ void tic_tac_toe()
 						
 							if (turn_counter > 4 && is_winner('0'))	
 							{
-								cout<<"Congratulations!!\n";
-								cout<<"Player 1 wins !\n";
+								cout<<"Gratulacje!!\n";
+								cout<<"Gracz 1 wygrywa !\n";
 								exit(0);
 							}
 					}
@@ -92,10 +91,10 @@ void tic_tac_toe()
 	
 	
 
-			cout<<"Player2 -> ";
+			cout<<"Gracz2 -> ";
 			cin>>cross;
 
-				// Checking if the index entered by user is a valid one or not
+				// Sprawdzanie czy liczba wprowadzona przez użytkownika jest poprawną lub nie
 				if (authenticated_index(cross-1))
 				{	
 					
@@ -106,19 +105,19 @@ void tic_tac_toe()
 	
 						if (turn_counter > 4  && is_winner('X'))
 						{
-							cout<<"Congratulations!!\n";
-							cout<<"Player 2 wins !\n";
+							cout<<"Gratulacje!!\n";
+							cout<<"Gracz 2 wygrywa !\n";
 							exit(0);
 						}
 				}
 			
-				// if the index entered by the user in not valid
-				// continue looping such that player2 has his turn
+				// jeśli liczba podana przez użytkownika nie jest poprawna
+				// kontynuuj pętle w której gracz2 ma swoją ture
 				else 
 				{
-					// setting up a 'continue_p2' flag so as to identify
-					// player2 game the command to continue and that 
-					// the turn continues with player2 and not player1
+					// ustawienie flagi 'continue_p2' do identyfikacji
+					// komendy gracza2 oraz kontynuowania
+					// tury gracza2 a nie gracza1
 					continue_p2 = 1;
 					continue;	
 				}
@@ -128,54 +127,52 @@ void tic_tac_toe()
 }
 
 
-
-// Returns a non-zero number if the player calling the function wins 
-// and returns 0 if the player calling the function has not won yet.
+// Zwraca nie-zerową liczbę jeśli użytkownik który wygra woła funkcję
+// i zwraca 0 jeśli użytkownik wołający funkcję nie wygrywa.
 //
 int is_winner(char ch)
 {
-	// Code goes here
+	// Kod idzie tutaj
 	
 		
 }
 
 
 
-// Banner for Tic-Tac-Toe game
+// Banner dla gry Tic-Tac-Toe
 void banner_ttt()
 {
 	cout<<"\n\n";
 	cout<<"-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n";
-	cout<<"                WELCOME TO TIC-TAC-TOE GAME                \n";
+	cout<<"                WITAJ W GRZE TIC-TAC-TOE                   \n";
 	cout<<"-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n";
 	cout<<"\n";
-	cout<<"This is a 2 player game in which '0' goes prior to 'X' ^_^ \n";
-	cout<<"Player has to enter the position where he/she wants to     \n";
-	cout<<"place the '0' or 'X'\n\n\n";
+	cout<<"Jest to gra dla 2 graczy gdzie '0' walczy z 'X' ^_^        \n";
+	cout<<"Gracz musi podać pozycję w której on/ona chce              \n";
+	cout<<"ustawić '0' lub 'X'\n\n\n";
 
-		// code for banner goes here
+		// Kod baneru idzie tutaj
 }
 
 
 
-// Checks if 
-// 1. The 'position' entered by user is not the
-// 	  one entered by any of the two users earlier.
-// 2. The 'position' is not out of range of the
-//    playing board.
-// Returns 1 if position is valid otherwise 0.
+// Sprawdź czy
+// 1. 'Pozycja' podana przez gracza nie jest
+// 	  tą samą która była podana wcześniej.
+// 2. 'Pozycja' nie jest poza zakresem.
+// Zwraca 1 jeśli pozycja jest poprawna, inaczej 0.
 //
 int authenticated_index(int index)
 {
-	//Code goes here
+	//Kod idzie tutaj
 	
 
 }
 
 
 
-// Shows the current status of the game 
-// It is called each time a user has his turn.
+// Pokazuje aktualny stan gry
+// Jest wołany za każdym razem gdy gracz ma swoją ture
 void show_status_ttt()
 {
 	
